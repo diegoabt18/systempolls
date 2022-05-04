@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from polls import views 
 
@@ -28,4 +30,4 @@ urlpatterns = [
     #path('results/<poll_id>/', views.results, name='results'),
     path('results/<poll_id>/', views.results2, name='results'),
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
